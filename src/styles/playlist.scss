@@ -2,11 +2,15 @@
 /* Playlist
 ================================================== */
 
+.playlist {
+	padding: 0;
+}
+
 .playlist li {
-	cursor:  pointer;
-	display:  block;
-	margin:  0;
-	padding:  21px 0;
+	cursor: pointer;
+	display: block;
+	margin: 0;
+	padding: 21px 0;
 }
 
 .playlist li:hover {
