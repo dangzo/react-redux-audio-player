@@ -1,14 +1,15 @@
 
 import React from 'react';
-
+import { Provider } from 'react-redux';
 import { Grid, Row, Col } from 'react-bootstrap';
+import store from '../store.js';
 
-// Components
+// App components
 import Playlist from './Playlist.js';
+import AudioPlayer from './AudioPlayer.js';
 
 // Debugging
 // 
-import store from '../store.js';
 import { addSong, removeSong, setFavorite } from '../actions/index.js';
 
 window.store = store;
@@ -20,13 +21,16 @@ window.removeSong = removeSong;
 
 
 const App = () => (
-	<Grid>
-		<Row className="showGrid">
-			<Col md={4} mdOffset={4}>
-				<Playlist />
-			</Col>
-		</Row>
-	</Grid>
+	<Provider store={store}>
+		<Grid>
+			<Row className="showGrid">
+				<Col md={6} mdOffset={3}>
+					<AudioPlayer />
+					<Playlist />
+				</Col>
+			</Row>
+		</Grid>
+	</Provider>
 );
 
 export default App;

@@ -9,3 +9,6 @@
 
 node_modules
 build
+
+# Exclude test tracks
+public/*.mp3

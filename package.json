@@ -1,7 +1,7 @@
 {
-  "name": "react-playlist-manager",
+  "name": "react-redux-audio-player",
   "version": "1.0.0",
-  "description": "React-Redux - Playlist manager",
+  "description": "React-Redux - Audio player",
   "main": "app.js",
   "scripts": {
     "start": "webpack-dev-server --mode development --hot",

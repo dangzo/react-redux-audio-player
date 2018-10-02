@@ -8,7 +8,7 @@ const initialState = {
 			title: "",
 			author: "",
 			URL: "",
-			duration: "2:45",
+			length: "2:45",
 			favorite: false
 		}*/
 	]

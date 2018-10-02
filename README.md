@@ -1,5 +1,5 @@
-# react-playlist-manager
-Playlist manager using React-Redux and Bootstrap.
+# react-redux-audio-player
+Audio player using React-Redux and Bootstrap.
 
 Goal is to write clean, elegant React code, getting proficient with Redux and Material UI.
 
