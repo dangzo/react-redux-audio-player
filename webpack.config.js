@@ -24,7 +24,7 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: "./public/index.html",
-      minify   : {
+      /*minify   : {
         html5                          : true,
         collapseWhitespace             : true,
         minifyCSS                      : true,
@@ -34,7 +34,7 @@ module.exports = {
         removeEmptyAttributes          : true,
         removeRedundantAttributes      : true,
         removeScriptTypeAttributes     : true
-      }
+      }*/
     })
   ]
 };
