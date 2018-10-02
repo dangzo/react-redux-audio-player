@@ -1,6 +1,10 @@
 
 import React from 'react';
-import CssBaseline from '@material-ui/core/CssBaseline';
+
+import { Grid, Row, Col } from 'react-bootstrap';
+
+// Components
+import Playlist from './Playlist.js';
 
 // Debugging
 // 
@@ -16,10 +20,13 @@ window.removeSong = removeSong;
 
 
 const App = () => (
-	<React.Fragment>
-		<CssBaseline />
-		App component.
- 	</React.Fragment>
+	<Grid>
+		<Row className="showGrid">
+			<Col md={4} mdOffset={4}>
+				<Playlist />
+			</Col>
+		</Row>
+	</Grid>
 );
 
 export default App;
