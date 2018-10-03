@@ -1,9 +1,14 @@
 
 import React, { Component } from 'react';
+import { playNext } from '../actions/index.js';
 import { connect } from 'react-redux';
 
 
 class AudioPlayer extends Component {
+	componentDidMount () {
+		const player = document.getElementsByClassName('player')[0];
+		player.addEventListener("ended", () => this.props.playNext());
+	}
 	componentDidUpdate (prevProps, prevState, snapshot) {
 		const player = document.getElementsByClassName('player')[0];
 		if (this.props.toPlay) {
@@ -14,7 +19,7 @@ class AudioPlayer extends Component {
 	render () {
 		return (
 			<div className="player-container">
-		    <audio className="player" preload="true" controls="controls" onEnded={console.log("ended")}>
+		    <audio className="player" preload="true" controls="controls">
 		    	<source src={`../../public/tracks/${this.props.file}`} type="audio/mpeg"  />
 		    	Your browser does not support HTML5 Audio! 
 		  	</audio>
@@ -27,4 +32,8 @@ const mapStateToProps = state => (
 	state.playing
 );
 
-export default connect(mapStateToProps)(AudioPlayer);
+const mapDispatchToProps = dispatch => ({
+	playNext: () => dispatch(playNext())
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(AudioPlayer);

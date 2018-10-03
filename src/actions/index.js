@@ -1,7 +1,6 @@
 
-// AudioPlayer actions
 import { PLAY_SONG } from '../constants/action-types.js';
-
+import { PLAY_NEXT } from '../constants/action-types.js';
 
 export const playSong = (song) => (
 	{
@@ -10,5 +9,11 @@ export const playSong = (song) => (
 			file: song.file,
 			index: song.index
 		}
+	}
+);
+
+export const playNext = () => (
+	{
+		type: PLAY_NEXT
 	}
 );

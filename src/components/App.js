@@ -10,9 +10,10 @@ import AudioPlayer from './AudioPlayer.js';
 
 // 
 // Debugging
-import { playSong } from '../actions/index.js';
+import { playSong, playNext } from '../actions/index.js';
 window.store = store;
 window.playSong = playSong;
+window.playNext = playNext;
 
 
 const App = () => (
