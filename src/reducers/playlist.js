@@ -1,5 +1,5 @@
 
-import { } from '../constants/action-types.js';
+import { PLAY_SONG } from '../constants/action-types.js';
 
 
 const initialState = [
@@ -50,6 +50,17 @@ const initialState = [
 
 const playlistReducer = (state = initialState, action) => {
 	switch (action.type) {
+		case PLAY_SONG:
+			if (action.index < state.length) {
+				return Object.assign([], state, state.map((song, index) => {
+					if (index===action.index) {
+						return Object.assign({}, song, { playing: true });
+					}
+					// Set all other elements to playing: false
+					return Object.assign({}, song, { playing: false });
+				}));
+			}
+			return state;
 		default:
 			return state;
 	}

@@ -1,24 +1,21 @@
 
-import { ADD_SONG, REMOVE_SONG, SET_FAVORITE } from '../constants/action-types.js';
+// AudioPlayer actions
+import { LOAD_SONG } from '../constants/action-types.js';
+
+// Playlisy actions
+import { PLAY_SONG } from '../constants/action-types.js';
 
 
-export const addSong = (song) => (
+export const loadSong = (song) => (
 	{
-		type: ADD_SONG,
+		type: DISPLAY_PLAYING_SONG,
 		song: song
 	}
 );
 
-export const removeSong = (index) => (
+export const playSong = (index) => (
 	{
-		type: REMOVE_SONG,
-		index: index
-	}
-);
-
-export const setFavorite = (index) => (
-	{
-		type: SET_FAVORITE,
+		type: PLAY_SONG,
 		index: index
 	}
 );
