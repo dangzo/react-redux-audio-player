@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Provider } from 'react-redux';
-import { Grid, Row, Col } from 'react-bootstrap';
+import { Grid, Row, Col, PageHeader} from 'react-bootstrap';
 import store from '../store.js';
 
 // App components
@@ -25,7 +25,9 @@ const App = () => (
 		<Grid>
 			<Row>
 				<Col md={6} mdOffset={3}>
-					<h1 className="app-title">React-Redux Audio Player</h1>
+					<PageHeader className="align-center">
+						React-Redux Audio Player
+					</PageHeader>
 				</Col>
 			</Row>
 			<Row className="showGrid">
@@ -34,6 +36,16 @@ const App = () => (
 					<Playlist />
 				</Col>
 			</Row>
+			<footer>
+				<Row className="showGrid">
+					<Col md={6} mdOffset={3}>
+						<div className="align-center">
+							<p>Coded by dangzo</p>
+							<p><a href="https://github.com/dangzo/react-redux-audio-player" target="_new">https://github.com/dangzo/react-redux-audio-player</a></p>
+						</div>
+					</Col>
+				</Row>
+			</footer>
 		</Grid>
 	</Provider>
 );
