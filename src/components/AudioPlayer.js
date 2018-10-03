@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import { playNext } from '../actions/index.js';
 import { connect } from 'react-redux';
+import Playlist from './Playlist.js';
 
 
 class AudioPlayer extends Component {
@@ -23,6 +24,7 @@ class AudioPlayer extends Component {
 		    	<source src={`../../public/tracks/${this.props.file}`} type="audio/mpeg"  />
 		    	Your browser does not support HTML5 Audio! 
 		  	</audio>
+		  	<Playlist />
 		  </div>
 		);
 	}

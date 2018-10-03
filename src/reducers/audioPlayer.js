@@ -10,7 +10,7 @@ const initialState = {
 const audioPlayerReducer = (state = initialState, action) => {
 	switch (action.type) {
 		case PLAY_SONG:
-			return Object.assign({}, state, {file: action.song.file, toPlay: true});
+			return Object.assign({}, state, {file: action.song.file, toPlay: true, index: action.index});
 			return state;
 		default:
 			return state;

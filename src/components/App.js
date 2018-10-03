@@ -5,7 +5,6 @@ import { Grid, Row, Col, PageHeader} from 'react-bootstrap';
 import store from '../store.js';
 
 // App components
-import Playlist from './Playlist.js';
 import AudioPlayer from './AudioPlayer.js';
 
 // 
@@ -29,7 +28,6 @@ const App = () => (
 			<Row className="showGrid">
 				<Col md={6} mdOffset={3}>
 					<AudioPlayer />
-					<Playlist />
 				</Col>
 			</Row>
 			<footer>

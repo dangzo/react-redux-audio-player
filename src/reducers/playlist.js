@@ -62,14 +62,14 @@ const playlistReducer = (state = initialState, action) => {
 			}
 			return state;
 		case PLAY_NEXT:
-			let nextPlaying = -1;
+			let nextPlayingIndex = -1;
 			return Object.assign([], state, state.map((song, index) => {		
 					if (song.playing) {
-						nextPlaying = index+1;
+						nextPlayingIndex = index+1;
 						return Object.assign({}, song, { playing: false });
 					}
 					// Set all other elements to playing: false
-					return Object.assign({}, song, { playing: (nextPlaying===index ? true : false) });
+					return Object.assign({}, song, { playing: (nextPlayingIndex===index ? true : false) });
 				}));
 		default:
 			return state;
