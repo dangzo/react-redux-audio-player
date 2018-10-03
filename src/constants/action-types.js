@@ -1,5 +1,7 @@
 
+// Action constants for AudioPlayer
+export const PLAY_SONG 			= "AUDIOPLAYER/PLAY_SONG";
+export const STOP_SONG 			= "AUDIOPLAYER/STOP_SONG";
+export const LOAD_SONG 			= "AUDIOPLAYER/LOAD_SONG";
+
 // Action constants for Playlist
-export const ADD_SONG 			= "PLAYLIST/ADD_SONG";
-export const REMOVE_SONG 		= "PLAYLIST/REMOVE_SONG";
-export const SET_FAVORITE 	= "PLAYLIST/SET_FAVORITE";

@@ -2,11 +2,11 @@
 import { combineReducers } from 'redux';
 
 import { } from '../constants/action-types.js';
-import songs from './playlist.reducer.js';
-import inPlay from './audioPlayer.reducer.js';
+import songs from './playlist.js';
+import playing from './audioPlayer.js';
 
 
 export default combineReducers({
 	songs, 
-	inPlay
+	playing
 });
