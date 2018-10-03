@@ -54,3 +54,12 @@ p a, p a:visited { line-height: inherit; }
 	text-align: center;
 	margin: 50px;
 }
+
+@media (max-width: 560px) {
+	h1 {
+		font-size: 28px;
+	}
+	.align-center {
+		margin: 25px 0;
+	}
+}

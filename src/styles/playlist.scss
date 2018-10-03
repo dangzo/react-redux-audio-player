@@ -42,3 +42,9 @@
 	right: 21px;
 	top: 0;
 }
+
+@media (max-width: 560px) {
+	.playlist li {
+		padding: 12px 0;
+	}	
+}
