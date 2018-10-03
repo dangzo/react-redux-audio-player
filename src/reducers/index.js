@@ -7,6 +7,6 @@ import playing from './audioPlayer.js';
 
 
 export default combineReducers({
-	songs, 
-	playing
+	songs: songs, 
+	playing: playing
 });
