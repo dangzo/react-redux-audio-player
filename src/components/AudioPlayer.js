@@ -14,7 +14,7 @@ class AudioPlayer extends Component {
 	render () {
 		return (
 			<div className="player-container">
-		    <audio className="player" preload="true" controls="controls">
+		    <audio className="player" preload="true" controls="controls" onEnded={console.log("ended")}>
 		    	<source src={`../../public/tracks/${this.props.file}`} type="audio/mpeg"  />
 		    	Your browser does not support HTML5 Audio! 
 		  	</audio>
