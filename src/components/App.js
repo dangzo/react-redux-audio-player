@@ -8,6 +8,10 @@ import store from '../store.js';
 import Playlist from './Playlist.js';
 import AudioPlayer from './AudioPlayer.js';
 
+// 
+// Debugging
+window.store = store;
+
 
 const App = () => (
 	<Provider store={store}>
