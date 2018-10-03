@@ -23,6 +23,11 @@ window.removeSong = removeSong;
 const App = () => (
 	<Provider store={store}>
 		<Grid>
+			<Row>
+				<Col md={6} mdOffset={3}>
+					<h1 className="app-title">React-Redux Audio Player</h1>
+				</Col>
+			</Row>
 			<Row className="showGrid">
 				<Col md={6} mdOffset={3}>
 					<AudioPlayer />
