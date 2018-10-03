@@ -8,17 +8,6 @@ import store from '../store.js';
 import Playlist from './Playlist.js';
 import AudioPlayer from './AudioPlayer.js';
 
-// Debugging
-// 
-import { addSong, removeSong, setFavorite } from '../actions/index.js';
-
-window.store = store;
-window.addSong = addSong;
-window.setFavorite = setFavorite;
-window.removeSong = removeSong;
-//
-// Debugging
-
 
 const App = () => (
 	<Provider store={store}>
