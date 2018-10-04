@@ -1,18 +1,11 @@
 
-import React from 'react';
-import { Provider } from 'react-redux';
-import { Grid, Row, Col, PageHeader} from 'react-bootstrap';
-import store from '../store.js';
+import React 													from 'react';
+import { Provider } 									from 'react-redux';
+import { Grid, Row, Col, PageHeader} 	from 'react-bootstrap';
+import store 													from '../store.js';
 
 // App components
-import AudioPlayer from './AudioPlayer.js';
-
-// 
-// Debugging
-import { playSong, playNext } from '../actions/index.js';
-window.store = store;
-window.playSong = playSong;
-window.playNext = playNext;
+import AudioPlayer 										from './AudioPlayer.js';
 
 
 const App = () => (
