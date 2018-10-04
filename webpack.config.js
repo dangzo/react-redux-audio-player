@@ -1,12 +1,18 @@
 const path                = require("path");
 const HtmlWebpackPlugin   = require("html-webpack-plugin");
-
+const CopyWebpackPlugin   = require('copy-webpack-plugin');
 
 module.exports = {
   entry: "./src/index.js",
   output: {
     path: path.join(__dirname, "/build"),
-    filename: "index-bundle.js"
+    filename: "js/bundle.js"
+  },
+  devServer: {
+    port: 3100,
+    contentBase: './',
+    hot: true,
+    historyApiFallback: true
   },
   module: {
     rules: [
@@ -35,6 +41,9 @@ module.exports = {
         removeRedundantAttributes      : true,
         removeScriptTypeAttributes     : true
       }*/
-    })
+    }),
+    new CopyWebpackPlugin([
+      { from: './public', to: './' }
+    ])
   ]
 };

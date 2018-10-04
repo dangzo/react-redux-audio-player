@@ -21,7 +21,7 @@ class AudioPlayer extends Component {
 		return (
 			<div className="player-container">
 		    <audio className="player" preload="true" controls="controls">
-		    	<source src={`../../public/tracks/${this.props.file}`} type="audio/mpeg"  />
+		    	<source src={`tracks/${this.props.file}`} type="audio/mpeg"  />
 		    	Your browser does not support HTML5 Audio! 
 		  	</audio>
 		  	<Playlist />
