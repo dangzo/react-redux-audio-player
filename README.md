@@ -1,6 +1,15 @@
 # react-redux-audio-player
-Audio player using React-Redux and Bootstrap.
 
-Goal is to write clean, elegant React code, getting proficient with Redux and Material UI.
+Demo: [http://www.danielegazzelloni.com/react-redux-player/](http://www.danielegazzelloni.com/react-redux-player/)
 
-Possibly styling it in a way it feels cool to use.
+An audio player using React-Redux and Bootstrap. 
+
+Goal was to write clean, elegant React code, getting proficient with Redux and React. 
+
+### Features implemented:
+- Change songs on click
+- Change sons on song finish
+- Play/Pause/Volume/etc... this are just HTML5 ```<auddio>``` features
+
+### Todo:
+- Implement the actual audio palyer controls in React/Redux (so Play, Pause, the progress bar, volume adjust, etc)
