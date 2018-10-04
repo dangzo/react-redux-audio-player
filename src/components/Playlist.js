@@ -1,9 +1,9 @@
 
-import React from 'react';
-import { connect } from 'react-redux';
+import React 				from 'react';
+import { connect } 	from 'react-redux';
 
 // App component
-import SongItem from './SongItem.js';
+import SongItem 		from './SongItem.js';
 
 
 const Playlist = ({ songList }) => (

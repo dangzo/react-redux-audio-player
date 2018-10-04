@@ -1,8 +1,8 @@
 
 import React, { Component } from 'react';
-import { playNext } from '../actions/index.js';
-import { connect } from 'react-redux';
-import Playlist from './Playlist.js';
+import { playNext } 				from '../actions/index.js';
+import { connect } 					from 'react-redux';
+import Playlist 						from './Playlist.js';
 
 
 class AudioPlayer extends Component {

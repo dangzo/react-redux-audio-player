@@ -1,11 +1,13 @@
 
-import { PLAY_SONG } from '../constants/action-types.js';
+import { PLAY_SONG } 	from '../constants/action-types.js';
+import tracklist 			from '../constants/tracklist.js';
+
 
 // playing file:
-const initialState = { 
-	file: 'track-1.mp3', 
+const initialState = (tracklist && tracklist.length) ? { 
+	file: tracklist[0].file, 
 	toPlay: false
-};
+} : {};
 
 const audioPlayerReducer = (state = initialState, action) => {
 	switch (action.type) {

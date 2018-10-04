@@ -1,7 +1,7 @@
 
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { playSong } from '../actions/index.js';
+import { connect } 					from 'react-redux';
+import { playSong } 				from '../actions/index.js';
 
 
 const currentPlaying = (isCurrentPlaying) => (
