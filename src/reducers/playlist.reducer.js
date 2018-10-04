@@ -1,12 +1,14 @@
 
-import { PLAY_SONG, PLAY_NEXT } 	from '../constants/action-types.js';
+import { PLAY_SONG, PLAY_NEXT } 	from '../actions/index.js';
 import tracklist 									from '../constants/tracklist.js';
 
 
 const initialState = tracklist;
 
 const playlistReducer = (state = initialState, action) => {
+
 	switch (action.type) {
+
 		case PLAY_SONG:
 			if (action.song.index < state.length) {
 				return Object.assign([], state, state.map((song, index) => {
@@ -18,6 +20,7 @@ const playlistReducer = (state = initialState, action) => {
 				}));
 			}
 			return state;
+
 		case PLAY_NEXT:
 			let nextPlayingIndex = -1;
 			return Object.assign([], state, state.map((song, index) => {		
@@ -28,6 +31,7 @@ const playlistReducer = (state = initialState, action) => {
 					// Set all other elements to playing: false
 					return Object.assign({}, song, { playing: (nextPlayingIndex===index ? true : false) });
 				}));
+			
 		default:
 			return state;
 	}

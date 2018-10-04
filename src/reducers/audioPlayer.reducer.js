@@ -1,5 +1,5 @@
 
-import { PLAY_SONG } 	from '../constants/action-types.js';
+import { PLAY_SONG } 	from '../actions/index.js';
 import tracklist 			from '../constants/tracklist.js';
 
 
@@ -9,14 +9,21 @@ const initialState = (tracklist && tracklist.length) ? {
 	toPlay: false
 } : {};
 
+
 const audioPlayerReducer = (state = initialState, action) => {
+	
 	switch (action.type) {
+		
 		case PLAY_SONG:
-			return Object.assign({}, state, {file: action.song.file, toPlay: true, index: action.index});
-			return state;
+			return Object.assign({}, state, action.song, {
+				toPlay: true
+			});
+
 		default:
 			return state;
+
 	}
+
 };
 
 export default audioPlayerReducer;

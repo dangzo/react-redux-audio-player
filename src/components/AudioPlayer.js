@@ -6,10 +6,12 @@ import Playlist 						from './Playlist.js';
 
 
 class AudioPlayer extends Component {
+
 	componentDidMount () {
 		const player = document.getElementsByClassName('player')[0];
 		player.addEventListener("ended", () => this.props.playNext());
 	}
+
 	componentDidUpdate (prevProps, prevState, snapshot) {
 		const player = document.getElementsByClassName('player')[0];
 		if (this.props.toPlay) {
@@ -17,6 +19,7 @@ class AudioPlayer extends Component {
 			player.play();
 		}
 	}
+	
 	render () {
 		return (
 			<div className="player-container">
@@ -28,6 +31,7 @@ class AudioPlayer extends Component {
 		  </div>
 		);
 	}
+	
 } 
 
 const mapStateToProps = state => (

@@ -9,14 +9,17 @@ const currentPlaying = (isCurrentPlaying) => (
 );
 
 class SongItem extends Component {
+	
 	constructor (props) {
 		super(props);
 	}
+
 	componentDidUpdate () {
 		if (this.props.playing) {
 			this.props.playSong(this.props.file, this.props.index);
 		}
 	}
+
 	render () {
 		return (
 			<li className={`${currentPlaying(this.props.playing)}`} onClick={() => this.props.playSong(this.props.file, this.props.index)}>
@@ -27,6 +30,7 @@ class SongItem extends Component {
 			</li>
 		);
 	}
+	
 } 
 
 const mapDisaptchToProps = dispatch => ({
