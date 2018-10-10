@@ -7,11 +7,12 @@ export const PAUSE_SONG	= `${AUDIOPLAYER} PAUSE_SONG`;
 export const PLAY_NEXT	= `${AUDIOPLAYER} PLAY_NEXT`;
 
 
-export const playSong = (index) => (
+export const playSong = (index, playing = true) => (
 	{
 		type: PLAY_SONG,
 		payload: {
-			index: index
+			index: index,
+			playing: playing
 		}
 	}
 );

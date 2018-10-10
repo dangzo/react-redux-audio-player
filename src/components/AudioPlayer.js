@@ -1,6 +1,7 @@
 
 import React, { Component } 	from 'react';
 import { playNext } 					from '../actions/audioPlayer.actions.js';
+import { setActive } 					from '../actions/playlist.actions.js';
 import { connect } 						from 'react-redux';
 
 import Playlist 							from './Playlist.js';
@@ -22,10 +23,10 @@ class AudioPlayer extends Component {
 	componentDidUpdate (prevProps, prevState, snapshot) {
 		const player = document.getElementsByClassName('player')[0];
 
-		if (this.props.playing) {
-			player.load(tracklist[this.props.index].file);
+		player.load(tracklist[this.props.index].file);
+		if (this.props.playing) {			
 			player.play();
-		}
+		} 
 	}
 	
 	render () {
@@ -48,7 +49,8 @@ const mapStateToProps = state => (
 );
 
 const mapDispatchToProps = dispatch => ({
-	playNext: () => dispatch(playNext())
+	playNext: () => dispatch(playNext()),
+	setActive: index => dispatch(setActive(index))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(AudioPlayer);

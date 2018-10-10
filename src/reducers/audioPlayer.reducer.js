@@ -13,7 +13,7 @@ const audioPlayerReducer = (state = initialState, action) => {
 		case PLAY_SONG:
 			// playing set to true when playing a new song
 			return Object.assign({}, state, { 
-				playing: true , 
+				playing: action.payload.playing, 
 				index: action.payload.index
 			});
 

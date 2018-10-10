@@ -22,17 +22,6 @@ const playlistReducer = (state = initialState, action) => {
 				})});
 			}
 			return state;
-
-		/*case SONG_ENDED:
-			let nextPlayingIndex = -1;
-			return Object.assign([], state, state.map((song, index) => {		
-					if (song.active) {
-						nextActiveIndex = index+1;
-						return Object.assign({}, song, { active: false });
-					}
-					// Set all other elements to active: false
-					return Object.assign({}, song, { active: (nextPlayingIndex===index ? true : false) });
-				}));*/
 			
 		default:
 			return state;
