@@ -1,23 +1,24 @@
 
-import { PLAY_SONG } 	from '../actions/index.js';
-import tracklist 			from '../constants/tracklist.js';
+import { PLAY_SONG, PAUSE_SONG, PLAY_NEXT } from '../actions/audioPlayer.actions.js';
+
+import tracklist from '../tracklist.js';
 
 
-// playing file:
-const initialState = (tracklist && tracklist.length) ? { 
-	file: tracklist[0].file, 
-	toPlay: false
-} : {};
-
+const initialState = { playing: false, index: 0 };
 
 const audioPlayerReducer = (state = initialState, action) => {
 	
 	switch (action.type) {
 		
 		case PLAY_SONG:
-			return Object.assign({}, state, action.song, {
-				toPlay: true
+			// playing set to true when playing a new song
+			return Object.assign({}, state, { 
+				playing: true , 
+				index: action.payload.index
 			});
+
+		case PAUSE_SONG:
+			return { playing: false };
 
 		default:
 			return state;

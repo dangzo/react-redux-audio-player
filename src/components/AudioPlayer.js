@@ -1,21 +1,29 @@
 
-import React, { Component } from 'react';
-import { playNext } 				from '../actions/index.js';
-import { connect } 					from 'react-redux';
-import Playlist 						from './Playlist.js';
+import React, { Component } 	from 'react';
+import { playNext } 					from '../actions/audioPlayer.actions.js';
+import { connect } 						from 'react-redux';
+
+import Playlist 							from './Playlist.js';
+import tracklist 							from '../tracklist.js';
 
 
 class AudioPlayer extends Component {
 
+	constructor(props) {
+		super(props);
+	}
+
 	componentDidMount () {
 		const player = document.getElementsByClassName('player')[0];
 		player.addEventListener("ended", () => this.props.playNext());
+
 	}
 
 	componentDidUpdate (prevProps, prevState, snapshot) {
 		const player = document.getElementsByClassName('player')[0];
-		if (this.props.toPlay) {
-			player.load(this.props.file);
+
+		if (this.props.playing) {
+			player.load(tracklist[this.props.index].file);
 			player.play();
 		}
 	}
@@ -24,7 +32,7 @@ class AudioPlayer extends Component {
 		return (
 			<div className="player-container">
 		    <audio className="player" preload="true" controls="controls">
-		    	<source src={`tracks/${this.props.file}`} type="audio/mpeg"  />
+		    	<source src={`tracks/${tracklist[this.props.index].file}`} type="audio/mpeg"  />
 		    	Your browser does not support HTML5 Audio! 
 		  	</audio>
 		  	<Playlist />
@@ -35,6 +43,7 @@ class AudioPlayer extends Component {
 } 
 
 const mapStateToProps = state => (
+	state.tracklist,
 	state.playing
 );
 

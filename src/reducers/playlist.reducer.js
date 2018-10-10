@@ -1,36 +1,38 @@
 
-import { PLAY_SONG, PLAY_NEXT } 	from '../actions/index.js';
-import tracklist 									from '../constants/tracklist.js';
+import { SET_ACTIVE } 	from '../actions/playlist.actions.js';
+import tracklist 				from '../tracklist.js';
 
 
-const initialState = tracklist;
+const initialState = {
+	tracklist: (tracklist ? tracklist : [])
+};
 
 const playlistReducer = (state = initialState, action) => {
 
 	switch (action.type) {
 
-		case PLAY_SONG:
-			if (action.song.index < state.length) {
-				return Object.assign([], state, state.map((song, index) => {
-					if (index===action.song.index) {
-						return Object.assign({}, song, { playing: true });
+		case SET_ACTIVE:
+			if (action.payload.index < state.tracklist.length) {
+				return Object.assign({}, state, { tracklist: state.tracklist.map((song, index) => {
+					if (index===action.payload.index) {
+						return Object.assign({}, song, { active: true });
 					}
-					// Set all other elements to playing: false
-					return Object.assign({}, song, { playing: false });
-				}));
+					// All other elements need to have { active: false }
+					return Object.assign({}, song, { active: false });
+				})});
 			}
 			return state;
 
-		case PLAY_NEXT:
+		/*case SONG_ENDED:
 			let nextPlayingIndex = -1;
 			return Object.assign([], state, state.map((song, index) => {		
-					if (song.playing) {
-						nextPlayingIndex = index+1;
-						return Object.assign({}, song, { playing: false });
+					if (song.active) {
+						nextActiveIndex = index+1;
+						return Object.assign({}, song, { active: false });
 					}
-					// Set all other elements to playing: false
-					return Object.assign({}, song, { playing: (nextPlayingIndex===index ? true : false) });
-				}));
+					// Set all other elements to active: false
+					return Object.assign({}, song, { active: (nextPlayingIndex===index ? true : false) });
+				}));*/
 			
 		default:
 			return state;

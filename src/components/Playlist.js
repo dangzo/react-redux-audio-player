@@ -1,21 +1,41 @@
 
-import React 				from 'react';
-import { connect } 	from 'react-redux';
+import React, { Component }	from 'react';
+import { connect } 					from 'react-redux';
+
+import { setActive } 				from '../actions/playlist.actions.js';
 
 // App component
-import SongItem 		from './SongItem.js';
+import SongItem 						from './SongItem.js';
 
 
-const Playlist = ({ songList }) => (
-	<ul className="playlist">
-		{songList.map((songItem, index) => (
-			<SongItem key={index} {...songItem} index={index} />
-		))}
-	</ul>
-);
+class Playlist extends Component {
+	
+	constructor (props) {
+		super(props);
+	}
+
+	componentDidMount () {
+		this.props.setActive(0);
+	}
+
+	render () {	
+		return (
+			<ul className="playlist">
+				{this.props.tracklist.map((songItem, index) => (
+					<SongItem key={index} {...songItem} index={index} isActive={songItem.active} />
+				))}
+			</ul>
+		);
+	}
+
+}
 
 const mapStateToProps = state => (
-	{ songList: state.songs }
+	state.tracklist
 );
 
-export default connect(mapStateToProps)(Playlist);
+const mapDispatchToProps = dispatch => (
+	{ setActive: (index) => dispatch( setActive(index) ) }
+)
+
+export default connect(mapStateToProps, mapDispatchToProps)(Playlist);
