@@ -16,6 +16,7 @@ Goal was to write clean, elegant React code, getting proficient with Redux and R
 
 - ~~Using middlewares~~
 - ~~Using PropTypes~~
+- Using ESLint
 - Unit testing
 - Implement the actual audio palyer controls in React/Redux (so Play, Pause, the progress bar, volume adjust, etc)
 - Let it work with Youtube links or external URLs
