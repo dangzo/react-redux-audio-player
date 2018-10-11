@@ -1,5 +1,6 @@
 
 import React, { Component } 	from 'react';
+import PropTypes							from 'prop-types'
 import { playNext } 					from '../actions/audioPlayer.actions.js';
 import { setActive } 					from '../actions/playlist.actions.js';
 import { connect } 						from 'react-redux';
@@ -49,8 +50,15 @@ const mapStateToProps = state => (
 );
 
 const mapDispatchToProps = dispatch => ({
-	playNext: () => dispatch(playNext()),
-	setActive: index => dispatch(setActive(index))
+	playNext: () => dispatch(playNext())
 });
+
+
+AudioPlayer.propTypes = {
+	playNext: 	PropTypes.func.isRequired,
+	index: 			PropTypes.number.isRequired,
+	playing: 		PropTypes.bool.isRequired
+};
+
 
 export default connect(mapStateToProps, mapDispatchToProps)(AudioPlayer);

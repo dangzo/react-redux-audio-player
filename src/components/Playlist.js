@@ -1,10 +1,9 @@
 
 import React, { Component }	from 'react';
 import { connect } 					from 'react-redux';
-
+import PropTypes						from 'prop-types';
 import { setActive } 				from '../actions/playlist.actions.js';
 
-// App component
 import SongItem 						from './SongItem.js';
 
 
@@ -22,7 +21,7 @@ class Playlist extends Component {
 		return (
 			<ul className="playlist">
 				{this.props.tracklist.map((songItem, index) => (
-					<SongItem key={index} {...songItem} index={index} isActive={songItem.active} />
+					<SongItem key={index} {...songItem} index={index} isActive={!!songItem.active} />
 				))}
 			</ul>
 		);
@@ -37,5 +36,11 @@ const mapStateToProps = state => (
 const mapDispatchToProps = dispatch => (
 	{ setActive: (index) => dispatch( setActive(index) ) }
 )
+
+
+Playlist.propTypes = {
+	setActive: PropTypes.func.isRequired,
+	tracklist: PropTypes.array.isRequired
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Playlist);

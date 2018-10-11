@@ -1,6 +1,8 @@
 
 import React, { Component } from 'react';
 import { connect } 					from 'react-redux';
+import PropTypes						from 'prop-types';
+
 import { playSong } 				from '../actions/audioPlayer.actions.js';
 
 
@@ -35,6 +37,16 @@ class SongItem extends Component {
 const mapDisaptchToProps = dispatch => (
 	{ playSong : (index) => dispatch( playSong(index) ) }
 );
+
+
+SongItem.propTypes = {
+	playSong: PropTypes.func.isRequired,
+	isActive: PropTypes.bool.isRequired,
+	title: PropTypes.string.isRequired,
+	author: PropTypes.string.isRequired,
+	file: PropTypes.string.isRequired,
+	length: PropTypes.string.isRequired
+};
 
 
 export default connect(null, mapDisaptchToProps)(SongItem);
