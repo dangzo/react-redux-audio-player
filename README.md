@@ -10,13 +10,13 @@ Goal was to write clean, elegant React code, getting proficient with Redux and R
 
 - Change songs on click
 - Change songs on song end
-- Play/Pause/Volume/etc... this are just HTML5 ```<auddio>``` features
+- Play/Pause/Volume/etc... so far these are just HTML5 ```<auddio>``` features
 
 #### Todo:
 
 - ~~Using middlewares~~
 - ~~Using PropTypes~~
-- Using ESLint
 - Unit testing
 - Implement the actual audio palyer controls in React/Redux (so Play, Pause, the progress bar, volume adjust, etc)
 - Let it work with Youtube links or external URLs
+- Get song meta from file
