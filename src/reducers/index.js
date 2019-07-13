@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux';
 
-import tracklist from './playlist.reducer';
-import playing from './audioPlayer.reducer';
+import playlistReducer from './playlist.reducer';
+import audioPlayerReducer from './audioPlayer.reducer';
 
 export default combineReducers({
-  tracklist,
-  playing,
+  playlist: playlistReducer,
+  audioPlayer: audioPlayerReducer,
 });

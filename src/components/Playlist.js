@@ -18,7 +18,7 @@ class Playlist extends Component {
       <ul className="playlist">
         {tracklist.map((songItem, index) => (
           <SongItem
-            key={`song-item-${songItem.index}`}
+            key={`song-item-${songItem.title}`}
             index={index}
             isActive={!!songItem.active}
             {...songItem}
@@ -29,7 +29,9 @@ class Playlist extends Component {
   }
 }
 
-const mapStateToProps = state => state.tracklist;
+const mapStateToProps = state => ({
+  tracklist: state.playlist.tracklist,
+});
 
 const mapDispatchToProps = dispatch => ({
   setActive: index => dispatch(setActive(index)),

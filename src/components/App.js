@@ -18,7 +18,7 @@ const App = () => (
       </Row>
       <Row className="showGrid">
         <Col md={6} mdOffset={3}>
-          <AudioPlayer index={0} />
+          <AudioPlayer />
         </Col>
       </Row>
       <footer>

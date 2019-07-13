@@ -41,8 +41,8 @@ class AudioPlayer extends Component {
 }
 
 const mapStateToProps = state => ({
-  tracklist: state.tracklist,
-  playing: state.playing,
+  tracklist: state.playlist.tracklist,
+  playing: state.audioPlayer.playing,
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -51,8 +51,12 @@ const mapDispatchToProps = dispatch => ({
 
 AudioPlayer.propTypes = {
   playNext: PropTypes.func.isRequired,
-  index: PropTypes.number.isRequired,
   playing: PropTypes.bool.isRequired,
+  index: PropTypes.number,
+};
+
+AudioPlayer.defaultProps = {
+  index: 0,
 };
 
 export default connect(
