@@ -1,7 +1,5 @@
-
 import { SET_ACTIVE } from '../actions/playlist.actions';
 import tracklist from '../tracklist';
-
 
 const initialState = {
   tracklist,

@@ -1,4 +1,3 @@
-
 import { PLAY_SONG, PAUSE_SONG } from '../actions/audioPlayer.actions';
 
 const initialState = { playing: false, index: 0 };

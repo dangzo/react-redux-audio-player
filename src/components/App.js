@@ -27,7 +27,10 @@ const App = () => (
             <div className="align-center">
               <p>Coded by Daniele Gazzelloni</p>
               <p>
-                <a href="https://github.com/dangzo/react-redux-audio-player" target="_new">
+                <a
+                  href="https://github.com/dangzo/react-redux-audio-player"
+                  target="_new"
+                >
                   https://github.com/dangzo/react-redux-audio-player
                 </a>
               </p>

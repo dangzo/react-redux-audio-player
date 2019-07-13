@@ -1,13 +1,11 @@
-
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import { playSong } from '../actions/audioPlayer.actions';
 
-const currentPlaying = isCurrentPlaying => (
-  isCurrentPlaying ? 'isPlaying' : ''
-);
+const currentPlaying = isCurrentPlaying =>
+  isCurrentPlaying ? 'isPlaying' : '';
 
 class SongItem extends Component {
   constructor(props) {
@@ -23,18 +21,15 @@ class SongItem extends Component {
   }
 
   render() {
-    const {
-      author, isActive, index, title, length,
-    } = this.props;
+    const { author, isActive, index, title, length } = this.props;
     return (
       <li className={`${currentPlaying(isActive)}`} onClick={this.clickSong}>
         <div className="song-item">
           <span className="song-num">
-            {(index < 10 ? '0' : null) + (index + 1)}
-            .
+            {`${(index < 10 ? '0' : null) + (index + 1)}.`}
           </span>
           {/* eslint-disable-next-line react/jsx-one-expression-per-line */}
-          <span className="song-title">{title} - {author}</span>
+          <span className="song-title">{`${title} - ${author}`}</span>
           <span className="song-length">{length}</span>
         </div>
       </li>
@@ -42,11 +37,9 @@ class SongItem extends Component {
   }
 }
 
-const mapDisaptchToProps = dispatch => (
-  {
-    playSong: index => dispatch(playSong(index)),
-  }
-);
+const mapDisaptchToProps = dispatch => ({
+  playSong: index => dispatch(playSong(index)),
+});
 
 SongItem.propTypes = {
   author: PropTypes.string.isRequired,
@@ -58,4 +51,7 @@ SongItem.propTypes = {
   title: PropTypes.string.isRequired,
 };
 
-export default connect(null, mapDisaptchToProps)(SongItem);
+export default connect(
+  null,
+  mapDisaptchToProps
+)(SongItem);

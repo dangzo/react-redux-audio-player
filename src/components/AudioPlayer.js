@@ -19,8 +19,6 @@ class AudioPlayer extends Component {
     const player = document.getElementsByClassName('player')[0];
     const { index, playing } = this.props;
 
-    console.log(playing);
-
     player.load(tracklist[index].file);
     if (playing) {
       player.play();
@@ -29,7 +27,6 @@ class AudioPlayer extends Component {
 
   render() {
     const { index } = this.props;
-    console.log(this.props);
     return (
       <div className="player-container">
         {/* eslint-disable-next-line jsx-a11y/media-has-caption */}
@@ -43,12 +40,10 @@ class AudioPlayer extends Component {
   }
 }
 
-const mapStateToProps = state => (
-  {
-    tracklist: state.tracklist,
-    playing: state.playing,
-  }
-);
+const mapStateToProps = state => ({
+  tracklist: state.tracklist,
+  playing: state.playing,
+});
 
 const mapDispatchToProps = dispatch => ({
   playNext: () => dispatch(playNext()),
@@ -60,5 +55,7 @@ AudioPlayer.propTypes = {
   playing: PropTypes.bool.isRequired,
 };
 
-
-export default connect(mapStateToProps, mapDispatchToProps)(AudioPlayer);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(AudioPlayer);
