@@ -11,8 +11,9 @@ class AudioPlayer extends Component {
   componentDidMount() {
     const player = document.getElementsByClassName('player')[0];
     // eslint-disable-next-line  no-shadow
-    const { playNext } = this.props;
-    player.addEventListener('ended', () => playNext());
+    const { playNextSong } = this.props;
+    console.log(this.props);
+    player.addEventListener('ended', () => playNextSong());
   }
 
   componentDidUpdate() {
@@ -43,20 +44,17 @@ class AudioPlayer extends Component {
 const mapStateToProps = state => ({
   tracklist: state.playlist.tracklist,
   playing: state.audioPlayer.playing,
+  index: state.audioPlayer.index,
 });
 
 const mapDispatchToProps = dispatch => ({
-  playNext: () => dispatch(playNext()),
+  playNextSong: () => dispatch(playNext()),
 });
 
 AudioPlayer.propTypes = {
-  playNext: PropTypes.func.isRequired,
+  playNextSong: PropTypes.func.isRequired,
   playing: PropTypes.bool.isRequired,
-  index: PropTypes.number,
-};
-
-AudioPlayer.defaultProps = {
-  index: 0,
+  index: PropTypes.number.isRequired,
 };
 
 export default connect(
