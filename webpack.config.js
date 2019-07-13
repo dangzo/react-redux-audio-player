@@ -4,6 +4,9 @@ const CopyWebpackPlugin   = require('copy-webpack-plugin');
 
 module.exports = {
   entry: "./src/index.js",
+  resolve: {
+    extensions: ['*', '.js', '.jsx']
+  },
   output: {
     path: path.join(__dirname, "/build"),
     filename: "js/bundle.js"
@@ -17,9 +20,9 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        use: ["babel-loader"]
+        use: ["babel-loader", "eslint-loader"]
       },
       {
         test:/\.(s*)css$/,

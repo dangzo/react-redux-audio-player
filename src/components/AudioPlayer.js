@@ -1,63 +1,63 @@
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
-import React, { Component } 	from 'react';
-import PropTypes							from 'prop-types'
-import { playNext } 					from '../actions/audioPlayer.actions.js';
-import { setActive } 					from '../actions/playlist.actions.js';
-import { connect } 						from 'react-redux';
+import { playNext } from '../actions/audioPlayer.actions';
 
-import Playlist 							from './Playlist.js';
-import tracklist 							from '../tracklist.js';
-
+import Playlist from './Playlist';
+import tracklist from '../tracklist';
 
 class AudioPlayer extends Component {
+  componentDidMount() {
+    const player = document.getElementsByClassName('player')[0];
+    // eslint-disable-next-line  no-shadow
+    const { playNext } = this.props;
+    player.addEventListener('ended', () => playNext());
+  }
 
-	constructor(props) {
-		super(props);
-	}
+  componentDidUpdate() {
+    const player = document.getElementsByClassName('player')[0];
+    const { index, playing } = this.props;
 
-	componentDidMount () {
-		const player = document.getElementsByClassName('player')[0];
-		player.addEventListener("ended", () => this.props.playNext());
+    console.log(playing);
 
-	}
+    player.load(tracklist[index].file);
+    if (playing) {
+      player.play();
+    }
+  }
 
-	componentDidUpdate (prevProps, prevState, snapshot) {
-		const player = document.getElementsByClassName('player')[0];
-
-		player.load(tracklist[this.props.index].file);
-		if (this.props.playing) {			
-			player.play();
-		} 
-	}
-	
-	render () {
-		return (
-			<div className="player-container">
-		    <audio className="player" preload="true" controls="controls">
-		    	<source src={`tracks/${tracklist[this.props.index].file}`} type="audio/mpeg"  />
-		    	Your browser does not support HTML5 Audio! 
-		  	</audio>
-		  	<Playlist />
-		  </div>
-		);
-	}
-	
-} 
+  render() {
+    const { index } = this.props;
+    console.log(this.props);
+    return (
+      <div className="player-container">
+        {/* eslint-disable-next-line jsx-a11y/media-has-caption */}
+        <audio className="player" preload="true" controls="controls">
+          <source src={`tracks/${tracklist[index].file}`} type="audio/mpeg" />
+          Your browser does not support HTML5 Audio!
+        </audio>
+        <Playlist />
+      </div>
+    );
+  }
+}
 
 const mapStateToProps = state => (
-	state.tracklist,
-	state.playing
+  {
+    tracklist: state.tracklist,
+    playing: state.playing,
+  }
 );
 
 const mapDispatchToProps = dispatch => ({
-	playNext: () => dispatch(playNext())
+  playNext: () => dispatch(playNext()),
 });
 
-
 AudioPlayer.propTypes = {
-	playNext: 	PropTypes.func.isRequired,
-	index: 			PropTypes.number.isRequired,
-	playing: 		PropTypes.bool.isRequired
+  playNext: PropTypes.func.isRequired,
+  index: PropTypes.number.isRequired,
+  playing: PropTypes.bool.isRequired,
 };
 
 

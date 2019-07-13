@@ -1,11 +1,10 @@
 
-import { combineReducers } 	from 'redux';
+import { combineReducers } from 'redux';
 
-import tracklist 		from './playlist.reducer.js';
-import playing 			from './audioPlayer.reducer.js';
-
+import tracklist from './playlist.reducer';
+import playing from './audioPlayer.reducer';
 
 export default combineReducers({
-	tracklist, 
-	playing
+  tracklist,
+  playing,
 });
