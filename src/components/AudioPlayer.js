@@ -12,7 +12,6 @@ class AudioPlayer extends Component {
     const player = document.getElementsByClassName('player')[0];
     // eslint-disable-next-line  no-shadow
     const { playNextSong } = this.props;
-    console.log(this.props);
     player.addEventListener('ended', () => playNextSong());
   }
 

@@ -2,10 +2,11 @@ import { playSong, PLAY_SONG, PLAY_NEXT } from '../actions/audioPlayer.actions';
 import { setActive } from '../actions/playlist.actions';
 import tracks from '../tracks';
 
-// eslint-disable-next-line import/prefer-default-export
-export const playerMiddleware = store => next => action => {
-  next(action);
+// NOTE:
+// use of a middleware here isn't really necessary. This is mostly
+// for demonstration purpose.
 
+const playerMiddleware = store => next => action => {
   switch (action.type) {
     case PLAY_SONG:
       store.dispatch(setActive(action.payload.index));
@@ -30,4 +31,8 @@ export const playerMiddleware = store => next => action => {
     default:
       break;
   }
+  // Call next action
+  next(action);
 };
+
+export default playerMiddleware;
