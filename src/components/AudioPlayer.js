@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { playNext } from '../actions/audioPlayer.actions';
 
 import Playlist from './Playlist';
-import tracklist from '../tracklist';
+import tracks from '../tracks';
 
 class AudioPlayer extends Component {
   componentDidMount() {
@@ -20,7 +20,7 @@ class AudioPlayer extends Component {
     const player = document.getElementsByClassName('player')[0];
     const { index, playing } = this.props;
 
-    player.load(tracklist[index].file);
+    player.load(tracks[index].file);
     if (playing) {
       player.play();
     }
@@ -32,7 +32,7 @@ class AudioPlayer extends Component {
       <div className="player-container">
         {/* eslint-disable-next-line jsx-a11y/media-has-caption */}
         <audio className="player" preload="true" controls="controls">
-          <source src={`tracks/${tracklist[index].file}`} type="audio/mpeg" />
+          <source src={`tracks/${tracks[index].file}`} type="audio/mpeg" />
           Your browser does not support HTML5 Audio!
         </audio>
         <Playlist />
@@ -42,7 +42,7 @@ class AudioPlayer extends Component {
 }
 
 const mapStateToProps = state => ({
-  tracklist: state.playlist.tracklist,
+  tracks: state.playlist.tracks,
   playing: state.audioPlayer.playing,
   index: state.audioPlayer.index,
 });

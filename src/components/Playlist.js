@@ -13,10 +13,10 @@ class Playlist extends Component {
   }
 
   render() {
-    const { tracklist } = this.props;
+    const { tracks } = this.props;
     return (
       <ul className="playlist">
-        {tracklist.map((songItem, index) => (
+        {tracks.map((songItem, index) => (
           <SongItem
             key={`song-item-${songItem.title}`}
             index={index}
@@ -30,7 +30,7 @@ class Playlist extends Component {
 }
 
 const mapStateToProps = state => ({
-  tracklist: state.playlist.tracklist,
+  tracks: state.playlist.tracks,
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -39,7 +39,7 @@ const mapDispatchToProps = dispatch => ({
 
 Playlist.propTypes = {
   setActive: PropTypes.func.isRequired,
-  tracklist: PropTypes.array.isRequired,
+  tracks: PropTypes.array.isRequired,
 };
 
 export default connect(

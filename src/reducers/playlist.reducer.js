@@ -1,25 +1,37 @@
 import { SET_ACTIVE } from '../actions/playlist.actions';
-import tracklist from '../tracklist';
+import tracks from '../tracks';
 
 const initialState = {
-  tracklist,
+  tracks,
 };
 
 const playlistReducer = (state = initialState, action) => {
+  const { payload } = action;
+
   switch (action.type) {
+    // Taking care of setting current song item as "active",
+    // which means displaying it with a darker blue background.
     case SET_ACTIVE:
-      if (action.payload.index < state.tracklist.length) {
+      if (payload.index < state.tracks.length) {
         return Object.assign({}, state, {
-          tracklist: state.tracklist.map((song, index) => {
-            if (index === action.payload.index) {
-              return Object.assign({}, song, { active: true });
+          tracks: state.tracks.map((song, index) => {
+            // The song we did the click on
+            if (index === payload.index) {
+              return {
+                ...song,
+                active: true,
+              };
             }
             // All other elements need to have { active: false }
-            return Object.assign({}, song, { active: false });
+            return {
+              ...song,
+              active: false,
+            };
           }),
         });
       }
       return state;
+    // Default case
     default:
       return state;
   }

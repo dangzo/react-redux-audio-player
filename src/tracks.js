@@ -1,4 +1,4 @@
-const tracklist = [
+const tracks = [
   {
     title: 'Being Free',
     author: 'Audiojungle',
@@ -37,4 +37,4 @@ const tracklist = [
   },
 ];
 
-export default tracklist;
+export default tracks;
