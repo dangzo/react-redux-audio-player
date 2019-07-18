@@ -2,15 +2,32 @@
 
 Demo: [http://www.danielegazzelloni.com/react-redux-player/](http://www.danielegazzelloni.com/react-redux-player/)
 
-An audio player using React-Redux and Bootstrap. 
+An audio player using React-Redux and Twitter Bootstrap. 
 
-Goal was to write clean, elegant React code, getting proficient with Redux and React. 
+Goal is to write clean, efficient React code, demonstrating proficiency with React and Redux patterns.
 
 #### Features implemented:
 
 - Change songs on click
-- Change songs on song end
+- Automatically play next song on song end
 - Play/Pause/Volume/etc... so far these are just HTML5 ```<auddio>``` features
+
+
+### Project setup
+```
+npm install
+```
+
+#### Compiles and hot-reloads for development
+```
+npm run start
+```
+
+#### Compiles and minifies for production
+```
+npm run build
+```
+
 
 #### Todo:
 
