@@ -1,6 +1,6 @@
 # react-redux-audio-player
 
-Demo: [http://www.danielegazzelloni.com/react-redux-player/](http://www.danielegazzelloni.com/react-redux-player/)
+Demo: [http://www.danielegazzelloni.com/demos/react-redux-player/](http://www.danielegazzelloni.com/demos/react-redux-player/)
 
 An audio player using React-Redux and Twitter Bootstrap. 
 
